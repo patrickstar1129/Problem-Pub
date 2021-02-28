@@ -13,9 +13,6 @@ function Problem({ name, difficulty, status, id }) {
       </div>
       <div className="problem_difficulty">{difficulty}</div>
       <div className="problem_status">{status}</div>
-      {/* <div  className="close_icon">
-        <CloseIcon fontSize="large" />
-      </div> */}
     </div>
   );
 }

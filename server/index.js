@@ -48,6 +48,17 @@ app.delete('/api/posts/delete', (req, res) => {
   })
 })
 
+app.put('/api/posts/update', (req, res) => {
+  console.log(req.body)
+  model.updateOne(req.body, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Listening on Port ${PORT}`)
 })

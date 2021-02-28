@@ -13,8 +13,6 @@
 
 .problem_detail_container {
   min-height: 100vh;
-
-
 }
 
 .problem_detail_card {
@@ -34,6 +32,7 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-family: 'Poppins', sans-serif;
   color:white;
+  position: relative;
 }
 
 .problem_remove {
@@ -49,4 +48,11 @@
   margin-top: 2%;
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
   /* color: white; */
+}
+
+.problem_edit {
+  position: absolute;
+  right: 5%;
+  top: 7.5%;
+  cursor:pointer;
 }
