@@ -5,14 +5,14 @@
   transform: translate(-50%, -50%);
   padding: 50px;
   z-index: 2;
-  height: 50vh;
-  width: 40vh;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  height: 55vh;
+  width: 50vh;
+  background: rgba( 255, 255, 255, 0.4);
+  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.35 ); */
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
   font-family: 'Poppins', sans-serif;
   color:white
 }
@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .close_add {
@@ -55,4 +55,19 @@
   box-sizing: border-box;
   text-align: center;
   cursor: pointer;
+  margin-top: 2%;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+}
+
+.add_input_name, .add_input_description, .add_select {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  border: none;
+  width: 97%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  outline: none;
+}
+
+textarea {
+  height: 25vh;
 }

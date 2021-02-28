@@ -38,6 +38,15 @@ app.get('/api/posts/id', (req, res) => {
   })
 })
 
+app.delete('/api/posts/delete', (req, res) => {
+  model.deleteOne(req.query.id, (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on Port ${PORT}`)

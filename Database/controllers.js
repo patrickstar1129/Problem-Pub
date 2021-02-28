@@ -40,6 +40,17 @@ const retrieveOne = (data, cb) => {
   })
 }
 
+const deleteOne = (data, cb) => {
+  db.Problem.remove(({"_id": ObjectId(data)}), (err, result) => {
+    if (err) {
+      cb(err)
+    } else {
+      cb(null, result)
+    }
+  })
+}
+
 module.exports.save = save;
 module.exports.retrieve = retrieve;
 module.exports.retrieveOne = retrieveOne;
+module.exports.deleteOne = deleteOne;

@@ -1,0 +1,22 @@
+.App {
+  background: linear-gradient(to right top, #0a468a, #6cdbeb);
+}
+
+.circle1, .circle2 {
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255,255,255, 0.5), rgba(255,255,255,0.15));
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: 10%;
+  right: 15%;
+}
+
+.circle2 {
+ bottom: 15%;
+ left: 15%
+}

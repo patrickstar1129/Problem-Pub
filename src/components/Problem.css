@@ -1,14 +1,22 @@
 .problem_container {
   display: flex;
-  border: 1px solid black;
-  width: 60vh;
+  margin-bottom: 3.5%;
+  padding-left: 2%;
+  padding-right: 2%;
   font-size: 30px;
-  justify-content: space-between;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.45 );
+  backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  font-family: 'Poppins', sans-serif;
+  color:white;
 }
 
 .problem_name {
-  list-style: none;
+  display: flex;
   flex: 1;
+  padding-top: 2%;
 }
 
 .problem_difficulty {
@@ -20,17 +28,16 @@
 .problem_status {
   display: flex;
   width: 30%;
-  text-align: end;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .problem_nav {
-  color: black;
-  text-decoration: none;
-}
-
-.close_icon {
   display: flex;
-  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+
 }
 

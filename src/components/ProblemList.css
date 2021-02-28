@@ -1,8 +1,12 @@
 .problem_list_container{
+  min-height: 100vh;
+   margin-left: 20%;
+  margin-right:20%;
+  margin-top: 5%;
+
+}
+
+.list_header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  height: 100vh;
+  justify-content: space-between;
 }

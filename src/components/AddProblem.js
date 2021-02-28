@@ -12,6 +12,10 @@ function AddProblem({ open, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !description) {
+      alert('Hey, looks like you forget to put down the name or text?')
+      return
+    }
     axios
       .post("/api/posts", {
         name: name,
@@ -21,6 +25,8 @@ function AddProblem({ open, onClose }) {
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+      onClose();
   };
 
   if (!open) return null;
@@ -36,7 +42,8 @@ function AddProblem({ open, onClose }) {
             <input
               type="text"
               value={name}
-              required
+              className="add_input_name"
+              placeholder="Reverse A LinkedList..."
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -45,9 +52,10 @@ function AddProblem({ open, onClose }) {
           <div className="add_component">
             Description:
             <textarea
+            className="add_input_description"
               type="text"
               value={description}
-              required
+              placeholder="Problem Description Here"
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
@@ -55,7 +63,7 @@ function AddProblem({ open, onClose }) {
           </div>
           <div className="add_component">
             Difficulty:
-            <select onChange={(e)=> setDifficulty(e.target.value)}>
+            <select className="add_select"onChange={(e)=> setDifficulty(e.target.value)}>
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
               <option value="Hard">Hard</option>
@@ -63,7 +71,7 @@ function AddProblem({ open, onClose }) {
           </div>
           <div className="add_component">
             Status:
-            <select onChange={(e) => setStatus(e.target.value)}>
+            <select className="add_select" onChange={(e) => setStatus(e.target.value)}>
               <option value="Incomplete">Incomplete</option>
               <option value="Almost There">Almost There</option>
               <option value="Completed">Completed</option>
