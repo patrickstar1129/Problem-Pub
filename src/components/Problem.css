@@ -1,0 +1,36 @@
+.problem_container {
+  display: flex;
+  border: 1px solid black;
+  width: 60vh;
+  font-size: 30px;
+  justify-content: space-between;
+}
+
+.problem_name {
+  list-style: none;
+  flex: 1;
+}
+
+.problem_difficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.problem_status {
+  display: flex;
+  width: 30%;
+  text-align: end;
+  justify-content: flex-end;
+}
+
+.problem_nav {
+  color: black;
+  text-decoration: none;
+}
+
+.close_icon {
+  display: flex;
+  cursor: pointer;
+}
+

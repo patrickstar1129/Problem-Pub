@@ -1,0 +1,58 @@
+.add_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  z-index: 2;
+  height: 50vh;
+  width: 40vh;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  font-family: 'Poppins', sans-serif;
+  color:white
+}
+
+.add_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.close_add {
+  position: fixed;
+  right: 1.5%;
+  top: 1.5%;
+  cursor: pointer;
+}
+
+.add_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.add_component {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3%;
+}
+
+.add_button {
+  width: 6em;
+  height: 2.25em;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  border-radius: 5em;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+}
