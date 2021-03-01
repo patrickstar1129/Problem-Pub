@@ -3,6 +3,9 @@
   font-size: 24px;
   font-weight: 200;
   flex: 1;
+  white-space:pre-wrap;
+  overflow-y: scroll;
+  max-height: 50vh;
 }
 
 .problem_name {
@@ -33,6 +36,7 @@
   font-family: 'Poppins', sans-serif;
   color:white;
   position: relative;
+  /* z-index: 3; */
 }
 
 .problem_remove {
@@ -52,7 +56,7 @@
 
 .problem_edit {
   position: absolute;
-  right: 5%;
-  top: 7.5%;
+  right: 3rem;
+  top: 3.5rem;
   cursor:pointer;
 }

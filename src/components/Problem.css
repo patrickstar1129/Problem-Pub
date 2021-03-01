@@ -11,6 +11,7 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-family: 'Poppins', sans-serif;
   color:white;
+  /* z-index: 10; */
 }
 
 .problem_name {

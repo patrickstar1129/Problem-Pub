@@ -1,22 +1,34 @@
 .App {
-  background: linear-gradient(to right top, #0a468a, #6cdbeb);
+  background: linear-gradient(62.06deg, rgba(90, 212, 202, 0.75) 7.73%, #65a4e2 29.67%, rgba(63, 111, 236, 0.87) 65.93%, rgba(138, 100, 232, 0.89) 98.72%);
 }
 
-.circle1, .circle2 {
+.circle1, .circle2, .circle3 {
   background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255, 0.5), rgba(255,255,255,0.15));
+  background: linear-gradient(to right bottom, rgba(255,255,255, 0.7), rgba(255,255,255,0.3), rgba(255,255,255,0.1));
   height: 20rem;
   width: 20rem;
   position: absolute;
   border-radius: 50%;
+
 }
 
 .circle1 {
   top: 10%;
   right: 15%;
+  box-shadow: 0 8px 32px 0 rgba(22, 37, 173, 0.185);
 }
 
 .circle2 {
  bottom: 15%;
- left: 15%
+ left: 15%;
+ box-shadow: 0 8px 32px 0 rgba(7, 74, 136, 0.288);
+ /* z-index: 2; */
+}
+
+.circle3 {
+  height: 10rem;
+  width: 10rem;
+  bottom: 12%;
+  left: 26%;
+  box-shadow: 0 8px 32px 0 rgba(7, 74, 136, 0.288);
 }

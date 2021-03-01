@@ -13,6 +13,7 @@ app.post('/api/posts', (req, res) => {
     if (err) {
       console.log(err)
     } else {
+      res.send(result)
       console.log('Successfully sent data to the database!')
     }
   })

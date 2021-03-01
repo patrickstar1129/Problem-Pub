@@ -1,0 +1,48 @@
+.pop_up_button {
+  width: 10em;
+  height: 2.25em;
+  font:inherit;
+  border: 0;
+  outline: 0;
+  border-radius: 5em;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 2%;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+}
+
+.pop_up_container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: space-around;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  padding: 2%;
+  z-index: 2;
+  height: 35vh;
+  width: 35vh;
+  background: rgba( 255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.5 );
+  backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  color:white;
+  animation: fade 0.5s linear forwards;
+  opacity: 1;
+}
+
+.pop_up_message {
+  font-size: 28px;
+  display: flex;
+  padding-left: 10%;
+}
+
+.pop_up_button_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+

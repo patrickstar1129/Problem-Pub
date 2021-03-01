@@ -12,10 +12,13 @@ function AddProblem({
   updateDescription,
   updateDifficulty,
   updateStatus,
-  match
+  match,
+  setProblems,
+  Problems,
+  setProblem,
 }) {
-  const [name, setName] = useState(updateName || '');
-  const [description, setDescription] = useState(updateDescription || '');
+  const [name, setName] = useState(updateName || "");
+  const [description, setDescription] = useState(updateDescription || "");
   const [difficulty, setDifficulty] = useState(updateDifficulty || "Easy");
   const [status, setStatus] = useState(updateStatus || "Incomplete");
 
@@ -32,25 +35,53 @@ function AddProblem({
         difficulty: difficulty,
         status: status,
       })
-      .then((res) => console.log(res))
+      .then((res) => setProblems((prevState) => [...prevState, res.data]))
       .catch((err) => console.log(err));
 
     onClose();
   };
 
   const handleUpdate = () => {
-    axios.put('/api/posts/update', {
-      id: match.params.id,
-      name: name,
-      description: description,
-      difficulty: difficulty,
-      status: status
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    const newData = [
+      {
+        id: match.params.id,
+        name: name,
+        description: description,
+        difficulty: difficulty,
+        status: status,
+      },
+    ];
+    const newMain = findIndexAndUpdate(Problems);
+    axios
+      .put("/api/posts/update", {
+        id: match.params.id,
+        name: name,
+        description: description,
+        difficulty: difficulty,
+        status: status,
+      })
+      .then((res) => {
+        setProblem(newData);
+        setProblems(newMain);
+      })
+      .catch((err) => console.log(err));
+    onClose();
+  };
 
-    onClose()
-  }
+  const findIndexAndUpdate = (array) => {
+    if (!array) return;
+    let index;
+    for (let problem of array) {
+      if (problem._id === match.params.id) {
+        index = array.indexOf(problem);
+      }
+    }
+    array[index].description = description;
+    array[index].name = name;
+    array[index].difficulty = difficulty;
+    array[index].status = status;
+    return array;
+  };
 
   if (!open && !isEdit) return null;
 
@@ -112,7 +143,10 @@ function AddProblem({
               <option value="Completed">Completed</option>
             </select>
           </div>
-          <button onClick={isEdit ? handleUpdate: handleSubmit} className="add_button">
+          <button
+            onClick={isEdit ? handleUpdate : handleSubmit}
+            className="add_button"
+          >
             Submit
           </button>
         </div>
