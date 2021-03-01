@@ -6,6 +6,7 @@
   white-space:pre-wrap;
   overflow-y: scroll;
   max-height: 50vh;
+  font-family: 'Courier New', Courier, monospace
 }
 
 .problem_name {

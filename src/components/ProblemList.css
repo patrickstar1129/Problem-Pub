@@ -3,10 +3,27 @@
    margin-left: 20%;
   margin-right:20%;
   margin-top: 5%;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .list_header {
   display: flex;
   justify-content: space-between;
+}
+
+.filter_input {
+  display: flex;
+  /* background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3)); */
+  background: rgba( 255, 255, 255, 0.25 );
+  border: none;
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  outline: none;
+  margin-bottom: 3%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.45 );
+  justify-content: center;
+  align-items: center;
 }

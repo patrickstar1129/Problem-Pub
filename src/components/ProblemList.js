@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProblemList.css";
 import Problem from "./Problem.js";
+import ReactPaginate from 'react-paginate'
 
-function ProblemList({ Problems }) {
+function ProblemList({ Problems, setTemp, temp, setProblems }) {
+  const [pageNumber, setPageNumber] = useState(1)
+
+   const handleChangeAndFilter = (e) => {
+    let query = e.target.value
+    const filtered = temp.filter((problem) => {
+      return problem.name.toLowerCase().includes(query.toLowerCase());
+    });
+    setProblems(filtered);
+  };
+
   return (
     <div className="problem_list_container">
-      {/* <div className="problem_container">
-        <div className="problem_name">Name</div>
-        <div className="problem_difficulty">Difficulty</div>
-        <div className="problem_status">Status</div>
-      </div> */}
+      <input
+        className="filter_input"
+        placeholder="Search by Title"
+        onChange={(e) => {
+         handleChangeAndFilter(e);
+        }}
+      ></input>
       {Problems.map((problem) => {
         return (
           <Problem

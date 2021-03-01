@@ -8,12 +8,16 @@ import ProblemDetail from "./components/ProblemDetail.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [Problems, setProblems] = useState([]);
+  const [temp, setTemp] = useState([]);
 
   useEffect(() => {
     (async () =>
       await axios
         .get("/api/posts")
-        .then((res) => setProblems(res.data))
+        .then((res) => {
+          setProblems(res.data);
+          setTemp(res.data);
+        })
         .catch((err) => console.log(err)))();
   }, []);
 
@@ -34,11 +38,12 @@ function App() {
           open={isOpen}
           onClose={() => setIsOpen(false)}
           setProblems={setProblems}
+          setTemp={setTemp}
         />
 
         <Switch>
           <Route path="/" exact>
-            <ProblemList Problems={Problems} />
+            <ProblemList Problems={Problems} temp={temp} setTemp={setTemp} setProblems={setProblems} />
           </Route>
 
           <Route
@@ -48,6 +53,7 @@ function App() {
                 Problems={Problems}
                 setProblems={setProblems}
                 {...props}
+                setTemp={setTemp}
               />
             )}
           />

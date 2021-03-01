@@ -16,6 +16,7 @@ function AddProblem({
   setProblems,
   Problems,
   setProblem,
+  setTemp,
 }) {
   const [name, setName] = useState(updateName || "");
   const [description, setDescription] = useState(updateDescription || "");
@@ -35,7 +36,10 @@ function AddProblem({
         difficulty: difficulty,
         status: status,
       })
-      .then((res) => setProblems((prevState) => [...prevState, res.data]))
+      .then((res) => {
+        setProblems((prevState) => [...prevState, res.data]);
+        setTemp((prevState) => [...prevState, res.data]);
+      })
       .catch((err) => console.log(err));
 
     onClose();

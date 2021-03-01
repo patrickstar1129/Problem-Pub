@@ -6,7 +6,7 @@ import AddProblem from "./AddProblem";
 import Popup from "./Popup.js";
 import { Redirect } from 'react-router-dom'
 
-function ProblemDetail({ match, Problems, setProblems }) {
+function ProblemDetail({ match, Problems, setProblems, setTemp }) {
   const [problem, setProblem] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -37,6 +37,7 @@ function ProblemDetail({ match, Problems, setProblems }) {
       .then((res) => {
         const newData = Problems.filter(problem => problem._id !== match.params.id);
         setProblems(newData)
+        setTemp(newData)
       })
       .catch((err) => console.log(err));
 
