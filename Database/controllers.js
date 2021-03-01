@@ -7,6 +7,7 @@ const save = (data, cb) => {
     description: data.description,
     difficulty: data.difficulty,
     status: data.status,
+    complexity: data.complexity
   });
 
   newProlem.save((err, result) => {

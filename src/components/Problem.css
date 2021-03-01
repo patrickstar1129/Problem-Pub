@@ -11,13 +11,13 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   font-family: 'Poppins', sans-serif;
   color:white;
+  height: 7rem;
   /* z-index: 10; */
 }
 
 .problem_name {
   display: flex;
   flex: 1;
-  padding-top: 2%;
 }
 
 .problem_difficulty {

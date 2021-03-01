@@ -3,11 +3,18 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import logo from "../Assets/logo .svg";
 
-function Header({ setOpen }) {
+function Header({ setOpen, setCurrentPage }) {
   return (
     <div className="header_container">
       <div className="header_logo">
-        <Link className="home_link" to="/">
+        <Link
+          className="home_link"
+          to="/"
+          onClick={() => {
+            setCurrentPage(1);
+
+          }}
+        >
           <img src={logo}></img>
         </Link>
       </div>

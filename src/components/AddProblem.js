@@ -41,6 +41,10 @@ function AddProblem({
         setTemp((prevState) => [...prevState, res.data]);
       })
       .catch((err) => console.log(err));
+      setName('')
+      setDescription('')
+      setDifficulty("Easy")
+      setStatus("Incomplete")
 
     onClose();
   };

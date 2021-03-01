@@ -11,7 +11,8 @@ let problemSchema = mongoose.Schema({
   name: String,
   description: String,
   difficulty: String,
-  status: String
+  status: String,
+  complexity: String
 })
 
 let Problem = mongoose.model('Problem', problemSchema)

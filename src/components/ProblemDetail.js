@@ -4,17 +4,35 @@ import "./ProblemDetail.css";
 import EditIcon from "@material-ui/icons/Edit";
 import AddProblem from "./AddProblem";
 import Popup from "./Popup.js";
-import { Redirect } from 'react-router-dom'
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 
-function ProblemDetail({ match, Problems, setProblems, setTemp }) {
+function ProblemDetail({
+  match,
+  Problems,
+  setProblems,
+  setTemp,
+  setCurrentPage,
+}) {
   const [problem, setProblem] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showComplexity, setShowComplexity] = useState(false);
+  const [showHint, setShowHint] = useState(false)
+  const complexity = "O(n), O(1)";
+  const hint = "since the largest number in the array is less than the length of the array, how can you take advantage of this?"
+
+  const complexityStyle = {
+    filter: showComplexity ? "none" : "blur(10px)",
+  };
+
+  const hintStyle = {
+    filter: showHint ? 'none' : 'blur(10px)'
+  }
 
   useEffect(() => {
     fetchData();
   }, []);
-
 
   const fetchData = async () => {
     await axios
@@ -35,12 +53,14 @@ function ProblemDetail({ match, Problems, setProblems, setTemp }) {
         },
       })
       .then((res) => {
-        const newData = Problems.filter(problem => problem._id !== match.params.id);
-        setProblems(newData)
-        setTemp(newData)
+        const newData = Problems.filter(
+          (problem) => problem._id !== match.params.id
+        );
+        setProblems(newData);
+        setTemp(newData);
+        setCurrentPage(1);
       })
       .catch((err) => console.log(err));
-
   };
   if (!problem) return null;
 
@@ -54,6 +74,42 @@ function ProblemDetail({ match, Problems, setProblems, setTemp }) {
         />
         <div className="problem_name">{problem[0].name}</div>
         <div className="problem_description">{problem[0].description}</div>
+        <div className="problem_complexity">Hint:
+        <div className="complexity" style={hintStyle}>{hint}</div>
+
+        {showHint ? (
+            <VisibilityOffIcon
+              className="visibility"
+              fontSize="large"
+              onClick={() => setShowHint(false)}
+            />
+          ) : (
+            <VisibilityIcon
+              className="visibility"
+              fontSize="large"
+              onClick={() => setShowHint(true)}
+            />
+          )}
+          </div>
+        <div className="problem_complexity">
+          optimal space and time complexity:
+          <div className="complexity" style={complexityStyle}>
+            {complexity}
+          </div>
+          {showComplexity ? (
+            <VisibilityOffIcon
+              className="visibility"
+              fontSize="large"
+              onClick={() => setShowComplexity(false)}
+            />
+          ) : (
+            <VisibilityIcon
+              className="visibility"
+              fontSize="large"
+              onClick={() => setShowComplexity(true)}
+            />
+          )}
+        </div>
         <button
           className="problem_remove"
           onClick={() => {

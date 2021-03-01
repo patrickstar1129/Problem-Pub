@@ -9,6 +9,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [Problems, setProblems] = useState([]);
   const [temp, setTemp] = useState([]);
+  const [problemsPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+
+
+  // get current problems
+  const indexLastPost = currentPage * problemsPerPage;
+  const indexFirstPost = indexLastPost - problemsPerPage;
+  const currentProblems = Problems.slice(indexFirstPost, indexLastPost);
+  const totalPages = Math.ceil(Problems.length / problemsPerPage);
+
+  const paginate = async (e) => {
+    let nextPage = e.selected + 1;
+
+    await setCurrentPage(nextPage);
+    console.log(nextPage);
+  };
 
   useEffect(() => {
     (async () =>
@@ -32,7 +48,11 @@ function App() {
 
         <div className="circle3" />
 
-        <Header setOpen={setIsOpen} />
+        <Header
+          setOpen={setIsOpen}
+          setCurrentPage={setCurrentPage}
+  
+        />
 
         <AddProblem
           open={isOpen}
@@ -43,7 +63,14 @@ function App() {
 
         <Switch>
           <Route path="/" exact>
-            <ProblemList Problems={Problems} temp={temp} setTemp={setTemp} setProblems={setProblems} />
+            <ProblemList
+              Problems={currentProblems}
+              temp={temp}
+              setTemp={setTemp}
+              setProblems={setProblems}
+              totalPages={totalPages}
+              paginate={paginate}
+            />
           </Route>
 
           <Route
@@ -54,6 +81,7 @@ function App() {
                 setProblems={setProblems}
                 {...props}
                 setTemp={setTemp}
+                setCurrentPage={setCurrentPage}
               />
             )}
           />
