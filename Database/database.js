@@ -12,6 +12,7 @@ let problemSchema = mongoose.Schema({
   description: String,
   difficulty: String,
   status: String,
+  hint: String,
   complexity: String
 })
 

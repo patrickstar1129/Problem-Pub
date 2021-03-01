@@ -75,7 +75,7 @@ function ProblemDetail({
         <div className="problem_name">{problem[0].name}</div>
         <div className="problem_description">{problem[0].description}</div>
         <div className="problem_complexity">Hint:
-        <div className="complexity" style={hintStyle}>{hint}</div>
+        <div className="complexity" style={hintStyle}>{problem[0].hint}</div>
 
         {showHint ? (
             <VisibilityOffIcon
@@ -94,7 +94,7 @@ function ProblemDetail({
         <div className="problem_complexity">
           optimal space and time complexity:
           <div className="complexity" style={complexityStyle}>
-            {complexity}
+            {problem[0].complexity}
           </div>
           {showComplexity ? (
             <VisibilityOffIcon
@@ -126,6 +126,8 @@ function ProblemDetail({
         updateDescription={problem[0].description}
         updateDifficulty={problem[0].difficulty}
         updateStatus={problem[0].status}
+        updateHint={problem[0].hint}
+        updateComplexity={problem[0].complexity}
         match={match}
         Problems={Problems}
         setProblems={setProblems}

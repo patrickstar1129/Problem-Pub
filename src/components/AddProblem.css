@@ -1,12 +1,14 @@
 .add_container {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -50%);
   padding: 50px;
   z-index: 2;
-  height: 55vh;
-  width: 50vh;
+  height: 75vh;
+  width: 60vh;
   background: rgba( 255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.5 );
   backdrop-filter: blur( 4px );
@@ -16,6 +18,7 @@
   color:white;
   animation: fade 0.5s linear forwards;
   opacity: 1;
+  overflow-y: scroll;
 }
 
 @keyframes fade {
@@ -66,6 +69,7 @@
 }
 
 .add_input_name, .add_input_description, .add_select {
+  display: flex;
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
   border: none;
   width: 97%;

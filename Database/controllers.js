@@ -7,6 +7,7 @@ const save = (data, cb) => {
     description: data.description,
     difficulty: data.difficulty,
     status: data.status,
+    hint: data.hint,
     complexity: data.complexity
   });
 
@@ -57,6 +58,8 @@ const updateOne = (data, cb) => {
       description: data.description,
       difficulty: data.difficulty,
       status: data.status,
+      hint: data.hint,
+      complexity: data.complexity
     },
     (err, result) => {
       if (err) {

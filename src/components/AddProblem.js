@@ -17,11 +17,15 @@ function AddProblem({
   Problems,
   setProblem,
   setTemp,
+  updateHint,
+  updateComplexity
 }) {
   const [name, setName] = useState(updateName || "");
   const [description, setDescription] = useState(updateDescription || "");
   const [difficulty, setDifficulty] = useState(updateDifficulty || "Easy");
   const [status, setStatus] = useState(updateStatus || "Incomplete");
+  const [hint, setHint] = useState(updateHint ||'');
+  const [complexity, setComplexity] = useState(updateComplexity || '')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +39,8 @@ function AddProblem({
         description: description,
         difficulty: difficulty,
         status: status,
+        hint: hint,
+        complexity: complexity
       })
       .then((res) => {
         setProblems((prevState) => [...prevState, res.data]);
@@ -45,6 +51,8 @@ function AddProblem({
       setDescription('')
       setDifficulty("Easy")
       setStatus("Incomplete")
+      setHint('')
+      setComplexity('')
 
     onClose();
   };
@@ -57,6 +65,8 @@ function AddProblem({
         description: description,
         difficulty: difficulty,
         status: status,
+        hint: hint,
+        complexity: complexity
       },
     ];
     const newMain = findIndexAndUpdate(Problems);
@@ -67,6 +77,8 @@ function AddProblem({
         description: description,
         difficulty: difficulty,
         status: status,
+        hint: hint,
+        complexity: complexity
       })
       .then((res) => {
         setProblem(newData);
@@ -124,6 +136,30 @@ function AddProblem({
               placeholder="Problem Description Here"
               onChange={(e) => {
                 setDescription(e.target.value);
+              }}
+            />
+          </div>
+          <div className="add_component">
+            Hint:
+            <input
+              type="text"
+              value={hint}
+              className="add_input_name"
+              placeholder="This will default to be hidden. You can come back to this."
+              onChange={(e) => {
+                setHint(e.target.value);
+              }}
+            />
+          </div>
+          <div className="add_component">
+            Time and Space Complexity:
+            <input
+              type="text"
+              value={complexity}
+              className="add_input_name"
+              placeholder="This will default to be hidden. You can come back to this."
+              onChange={(e) => {
+                setComplexity(e.target.value);
               }}
             />
           </div>
