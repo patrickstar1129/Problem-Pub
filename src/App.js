@@ -23,7 +23,6 @@ function App() {
     let nextPage = e.selected + 1;
 
     await setCurrentPage(nextPage);
-    console.log(nextPage);
   };
 
   useEffect(() => {
@@ -51,7 +50,7 @@ function App() {
         <Header
           setOpen={setIsOpen}
           setCurrentPage={setCurrentPage}
-  
+
         />
 
         <AddProblem

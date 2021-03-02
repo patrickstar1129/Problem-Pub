@@ -19,8 +19,6 @@ function ProblemDetail({
   const [isOpen, setIsOpen] = useState(false);
   const [showComplexity, setShowComplexity] = useState(false);
   const [showHint, setShowHint] = useState(false)
-  const complexity = "O(n), O(1)";
-  const hint = "since the largest number in the array is less than the length of the array, how can you take advantage of this?"
 
   const complexityStyle = {
     filter: showComplexity ? "none" : "blur(10px)",

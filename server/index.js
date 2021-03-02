@@ -64,3 +64,9 @@ app.listen(PORT, () => {
   console.log(`Listening on Port ${PORT}`)
 })
 
+
+
+// //passport.authenticate({'google', {
+//   scope: ['profile'],
+//   prompt: 'select_account'
+//   }
